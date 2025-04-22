@@ -50,6 +50,8 @@ description: API 网关 Apache APISIX 的 rocketmq-logger 插件用于将日志�
 | include_req_body_expr  | array   | 否     |                   |                       | 当 `include_req_body` 属性设置为 `true` 时进行过滤请求体，并且只有当此处设置的表达式计算结果为 `true` 时，才会记录请求体。更多信息，请参考 [lua-resty-expr](https://github.com/api7/lua-resty-expr)。 |
 | include_resp_body      | boolean | 否     | false             | [false, true]         | 当设置为 `true` 时，包含响应体。 |
 | include_resp_body_expr | array   | 否     |                   |                       | 当 `include_resp_body` 属性设置为 `true` 时进行过滤响应体，并且只有当此处设置的表达式计算结果为 `true` 时，才会记录响应体。更多信息，请参考 [lua-resty-expr](https://github.com/api7/lua-resty-expr)。 |
+| max_req_body_bytes     | int     | 否     | 524288            |                       | 当 `include_req_body` 属性设置为 `true` 时生效，限制记录请求体的最大长度，超过则截断。**3.10版本开始支持。** |
+| max_resp_body_bytes    | int     | 否     | 524288            |                       | 当 `include_resp_body` 属性设置为 `true` 时生效，限制记录响应体的最大长度，超过则截断。**3.10版本开始支持。** |
 
 注意：schema 中还定义了 `encrypt_fields = {"secret_key"}`，这意味着该字段将会被加密存储在 etcd 中。具体参考 [加密存储字段](../plugin-develop.md#加密存储字段)。
 
